@@ -1,7 +1,8 @@
 from Products import products
 
-def create_products(name, price):
+def create_products(id, name, price):
     product = {
+        "id": id,
         "name": name,
         "price": price
     }

@@ -37,3 +37,31 @@ Cart APIs -
    - Description: Clear the cart
    - Response: JSON object with a success message
 
+
+from flask import Flask, jsonify, request
+
+app = Flask(__name__)
+
+products = {
+    1: {'name': 'Product 1', 'price': 10.88, 'description': 'Description 1', 'image_url': 'image1.jpg'},
+    2: {'name': 'Product 2', 'price': 19.88, 'description': 'Description 2', 'image_url': 'image1.jpg'},
+    3: {'name': 'Product 2', 'price': 19.88, 'description': 'Description 2', 'image_url': 'image1.jpg'}
+}
+
+@app.route('/')
+def index():
+    return jsonify(message = "Welcome to my Ecommerce Website!")
+
+@app.route('/products', methods=['GET'])
+def get_products():
+    return jsonify(products=products)
+
+@app.route("/products", methods=['POST'])
+def add_product():
+    product = request.get_json()
+    product_id = len(products) + 1
+    products[product_id] = product
+    return jsonify(message = f"Product '{product['name']}' added successfully!")
+
+
+app.run(port=8000)
