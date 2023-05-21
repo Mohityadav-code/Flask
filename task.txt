@@ -1,0 +1,39 @@
+1. `GET /`
+   - Description: Welcome message
+   - Response: JSON object with a welcome message
+
+Products API – 
+2. `GET /products`
+   - Description: Get the list of products
+   - Response: JSON object with the list of products
+
+3. `POST /products`
+   - Description: Add a new product
+   - Request body: JSON object containing the product details
+   - Response: JSON object with a success message
+
+4. `PUT /products/<int:product_id>`
+   - Description: Update an existing product
+   - Request body: JSON object containing the updated product details
+   - Response:
+     - JSON object with a success message if the product is updated successfully
+     - JSON object with an error message if the product does not exist
+
+Cart APIs - 
+5. `POST /cart/add/<int:product_id>`
+   - Description: Add a product to the cart
+   - Request body: None
+   - Response:
+     - JSON object with a success message if the product is added successfully
+     - JSON object with an error message if the product does not exist or is already in the cart
+
+6. `GET /cart`
+   - Description: View the cart
+   - Response:
+     - JSON object with the cart items and the total price if the cart is not empty
+     - JSON object with a message indicating that the cart is empty if the cart is empty
+
+7. `DELETE /cart`
+   - Description: Clear the cart
+   - Response: JSON object with a success message
+

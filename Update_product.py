@@ -1,10 +1,10 @@
-from Products import Products
+from Products import products
 
 def Update_Product(name, price):
-    for product in Products:
+    for product in products:
         if product["name"] == name:
             product["price"] = price
             print("Product updated successfully")
-            return Products
+            return products
     print("Product not found")
-    return Products
+    return products
